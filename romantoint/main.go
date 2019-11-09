@@ -51,7 +51,6 @@ Input: "MCMXCIV"
 Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 */
-
 var roman = map[string]int{
 	"I": 1,
 	"V": 5,
@@ -64,9 +63,9 @@ var roman = map[string]int{
 
 //RomanToInt Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 func RomanToInt(s string) int {
+
 	var res int
 	b := 0
-
 	length := len(s)
 	for i := 0; i < length; i++ {
 		c := string(s[i])
