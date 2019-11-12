@@ -32,6 +32,7 @@ func (tn *TrieNode) SearchLCP() string {
 	head := tn
 	for {
 		tlen := len(head.tMap)
+		//this makes sure that loop after this if-block runs for 1 iteration only
 		if head.end || tlen > 1 || tlen < 1 {
 			return lpc
 		}
