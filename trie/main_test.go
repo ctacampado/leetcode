@@ -63,17 +63,11 @@ func TestLongestCommonPrefix(t *testing.T) {
 		}, {
 			input: []string{"abab", "aba", ""},
 			res:   "",
-		}, {
-			input: []string{"acbb", "a"},
-			res:   "a",
-		}, {
-			input: []string{"aacc", "aa", "aa", "aa", "aaca"},
-			res:   "aa",
 		},
 	}
 
 	for _, tc := range testCases {
-		res := LongestCommonPrefixVertical(tc.input)
+		res := LongestCommonPrefix(tc.input)
 		if res != tc.res {
 			t.Errorf("incorrect result. exp %s | got %s\n", tc.res, res)
 		} else {

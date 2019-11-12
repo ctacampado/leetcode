@@ -56,7 +56,7 @@ func LongestCommonPrefix(strs []string) string {
 			return ""
 		}
 		for j := 0; j < minl; j++ {
-			if (prefix)[j] != strs[i][j] {
+			if prefix[j] != strs[i][j] {
 				prefix = strs[i][:j]
 				break
 			}
@@ -66,6 +66,33 @@ func LongestCommonPrefix(strs []string) string {
 	return prefix
 }
 
+//LongestCommonPrefixVertical -
+func LongestCommonPrefixVertical(strs []string) string {
+	if len(strs) == 0 {
+		return ""
+	}
+	prefix := strs[0]
+	for i, c := range prefix {
+		for j := 1; j < len(strs); j++ {
+			s := strs[j]
+			if len(s) == 0 {
+				return ""
+			}
+			//fmt.Println("i: ", i, "len(s): ", len(s))
+			if i > len(s)-1 {
+				prefix = s
+				continue
+			}
+			//fmt.Println("prefix: ", prefix)
+			if string(s[i]) != string(c) {
+				prefix = minStr(prefix, s[:i])
+				return prefix
+			}
+		}
+	}
+	return prefix
+}
+
 func main() {
-	fmt.Println(LongestCommonPrefix([]string{"abab", "aba", ""}))
+	fmt.Println(LongestCommonPrefixVertical([]string{"aacc", "aa", "aa", "aa", "aaca"}))
 }

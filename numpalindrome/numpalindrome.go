@@ -46,34 +46,13 @@ func isPalindrome(x int) bool {
 	return true
 }
 
-func isPalindrome1(x int) bool {
-	//one's digit = x%10
-	//remaining   = x/10
-	if x < 0 {
-		return false
-	}
-	i := 0
-	y := x
-	num := 0
-	for {
-		num = num*10 + y%10
-		y /= 10
-		if y == 0 {
-			return num == x
-		}
-		i++
-	}
-}
-
 func isPalindrome2(x int) bool {
-	length := int(math.Log10(float64(x)))
-	ln := 0
-	rn := 0
-	y1 := x
-	y2 := x
-	for i := 0; i <= length/2; i++ {
-		fmt.Println(length/2, ln, rn)
 
+	length := int(math.Log10(float64(x)))
+	ln, rn := 0, 0
+	y1, y2 := x, x
+
+	for i := 0; i <= length/2; i++ {
 		ln = y1 - (y1 - int(math.Pow10(length)))
 		rn = y2 % 10 * int(math.Pow10(length))
 		if ln != rn {
